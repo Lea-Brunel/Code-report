@@ -41,7 +41,7 @@ linkaxes([ax1 ax2 ax3],'x')
 %% Plot hypnogram and feeding bouts
 
 figure
-imagesc(hypn);
+imagesc(hypnogram);
 hold on
 plot(data.fed, 'r')
 hold off
