@@ -366,16 +366,16 @@ end
 
 %% plot poisson regression
 ch = 8; % chose channel to plot
-mdl = fitglm(closed.rise(ch,:), closed.fed_batch, 'linear', 'Distribution', 'poisson'); 
+mdl = fitglm(data.rise(ch,:), data.fed_batch, 'linear', 'Distribution', 'poisson'); 
 
-x_pred = linspace(min(closed.rise(ch,:)), max(closed.rise(ch,:)), 100)';
+x_pred = linspace(min(data.rise(ch,:)), max(data.rise(ch,:)), 100)';
 % y_pred = predict(mdl, x_pred); % prediction pts accoring to poisson coefficients
 
 [predicted_counts, CI] = predict(mdl, x_pred); % to get confidence interval bounds and predicted pts
 
 % Plot observed vs predicted pts + confidence bounds
 figure
-scatter(closed.rise(ch,:), closed.fed_batch, 'x'); % Observed points
+scatter(data.rise(ch,:), data.fed_batch, 'x'); % Observed points
 
 hold on;
 % plot(x_pred, y_pred, 'r', 'LineWidth', 2, 'DisplayName', 'Poisson regression'); % Regression line
